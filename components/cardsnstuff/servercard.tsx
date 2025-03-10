@@ -8,7 +8,7 @@ const ServerCard = React.forwardRef<
 	React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
 	<Card ref={ref} className={className}>
-		<div className="overflow-hidden rounded-t-2xl">
+		<div className="overflow-hidden">
 			<img
 				className="w-full object-cover"
 				src="https://autumn.revolt.chat/banners/BCuVqeq6jg6BXmcoH2dE7IS5neCercGTzEb30qDA2I?width=640"
