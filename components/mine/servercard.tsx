@@ -6,22 +6,20 @@ import {Button} from "~/components/ui/button";
 export interface ServerCardProps
 	extends React.HTMLAttributes<HTMLDivElement> {
 
-	serverName: string | null;
-	serverDescription: string | null;
+	serverName: string | undefined;
+	serverDescription: string | undefined;
 
-	serverIconUrl: string | null;
-	serverBannerUrl: string | null;
+	serverIconUrl: string | undefined;
+	serverBannerUrl: string | undefined;
 
-	serverInviteUrl: string | null;
+	serverInviteUrl: string | undefined;
 
-	isOfficial: boolean;
+	isVerified: boolean; // Hm, not sure on what we'll be doing for this,
+	// but we'll keep it as a field in case of future use.
 }
 
-const ServerCard = React.forwardRef<
-	HTMLDivElement,
-	ServerCardProps
->(({ className, ...props }, ref) => (
-	<Card ref={ref} className={className}>
+const ServerCard = React.forwardRef<HTMLDivElement, ServerCardProps>(({ className, ...props }, ref) => (
+	<Card ref={ref} className={`flex flex-col h-full ${className}`}>
 		<div className="overflow-hidden">
 			<img
 				className="w-full object-cover"
@@ -37,27 +35,35 @@ const ServerCard = React.forwardRef<
 				className="h-16 w-16 bg-cyan-950 rounded-full p-0.5 z-20"
 			/>
 		</div>
-		<CardHeader className="p-4 pt-2">
+		<CardHeader className="p-4 pt-2 flex flex-col flex-grow justify-center">
 			<CardTitle className="text-center">
 				<div className="inline-flex items-center justify-center gap-2 mx-auto">
-					{props.isOfficial && (
+					{props.isVerified && (
 						<img
 							src="https://rvlt.gg/badges/revolt_r.svg"
 							alt="Badge"
 							className="h-6 w-6"
 						/>
 					)}
-					<Label className="text-2xl font-semibold">Revolt</Label>
+					<Label className="text-2xl font-semibold">{props.serverName ?? "[unnamed server]"}</Label>
 				</div>
 			</CardTitle>
 			<CardDescription className="text-center p-2">
-				{props.serverDescription ??
-					"Official server run by the team behind Revolt.\n" +
-					"General conversation and support server."}
+				{props.serverDescription ?? "No description provided."}
 			</CardDescription>
 		</CardHeader>
-		<CardFooter>
-			<a href={props.serverInviteUrl ?? "#"} className="w-full"><Button className="w-full" variant="outline" size="icon">Join Server</Button></a>
+		<CardFooter className="mt-auto">
+			<Button
+				className="w-full"
+				variant="outline"
+				size="icon"
+				disabled={props.serverInviteUrl === undefined}
+				onClick={() => {
+					props.serverInviteUrl && (window.location.href = props.serverInviteUrl);
+				}}
+			>
+				Join Server
+			</Button>
 		</CardFooter>
 	</Card>
 ));

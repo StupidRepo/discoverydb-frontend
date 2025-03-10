@@ -1,6 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "components/ui/tabs";
-import { ServerCard } from "components/cardsnstuff/servercard";
+import { ServerPage } from "components/pages/serverpage";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faBolt, faCloudBolt,
@@ -45,21 +45,7 @@ export default function Index() {
 			</header>
 			<section className="p-4 flex-1 overflow-auto">
 				<TabsContent value="servers">
-					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-						<ServerCard />
-						<ServerCard />
-						<ServerCard />
-						<ServerCard />
-						<ServerCard />
-						<ServerCard />
-						<ServerCard />
-						<ServerCard />
-						<ServerCard />
-						<ServerCard />
-						<ServerCard />
-						<ServerCard />
-						<ServerCard />
-					</div>
+					<ServerPage />
 				</TabsContent>
 				<TabsContent value="bots">
 					<h1 className="text-4xl font-medium text-white">Bots!</h1>
