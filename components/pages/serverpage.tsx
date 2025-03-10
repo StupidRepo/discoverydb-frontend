@@ -12,7 +12,7 @@ const ServerPage = React.forwardRef<
 			"Need emojis? Don't worry, we've got loads!\n" +
 			"Spanning over 2 servers, you will find countless numbers of emojis to use anywhere around Revolt. Join now!"
 		} serverInviteUrl="https://rvlt.gg/w4NykttM" />
-		<ServerCard />
+		<ServerCard serverName="Testing" serverDescription="Cool!" />
 		<ServerCard />
 		<ServerCard />
 		<ServerCard />

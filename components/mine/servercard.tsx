@@ -20,9 +20,9 @@ export interface ServerCardProps
 
 const ServerCard = React.forwardRef<HTMLDivElement, ServerCardProps>(({ className, ...props }, ref) => (
 	<Card ref={ref} className={`flex flex-col h-full ${className}`}>
-		<div className="overflow-hidden">
+		<div className="overflow-hidden rounded-t-2xl">
 			<img
-				className="w-full object-cover"
+				className="w-full object-cover block"
 				src={props.serverBannerUrl ?? "https://autumn.revolt.chat/banners/BCuVqeq6jg6BXmcoH2dE7IS5neCercGTzEb30qDA2I?width=640"}
 				alt="Server Banner"
 				style={{ height: "150px" }}
@@ -35,7 +35,7 @@ const ServerCard = React.forwardRef<HTMLDivElement, ServerCardProps>(({ classNam
 				className="h-16 w-16 bg-cyan-950 rounded-full p-0.5 z-20"
 			/>
 		</div>
-		<CardHeader className="p-4 pt-2 flex flex-col flex-grow justify-center">
+		<CardHeader className="p-4 pt-2 flex flex-col flex-grow">
 			<CardTitle className="text-center">
 				<div className="inline-flex items-center justify-center gap-2 mx-auto">
 					{props.isVerified && (
