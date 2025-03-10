@@ -9,9 +9,9 @@ export default function Index() {
                 <h1 className="text-2xl font-bold text-white">DiscoveryDB</h1>
             </header>
             <Tabs defaultValue="servers" className="h-full">
-                <div className="flex h-full">
-                    <section className="w-1/6 p-4">
-                        <TabsList className="flex flex-col space-y-2">
+                <div className="flex h-full flex-col sm:flex-row">
+                    <section className="p-4 sm:w-1/6">
+                        <TabsList className="w-full">
                             <TabsTrigger value="servers" className="text-white">
                                 Servers
                             </TabsTrigger>
@@ -23,9 +23,9 @@ export default function Index() {
                             </TabsTrigger>
                         </TabsList>
                     </section>
-                    <section className="w-5/6 p-4">
+                    <section className="p-4 sm:w-5/6">
                         <TabsContent value="servers">
-                            <div className="grid grid-cols-4 gap-8"> {/* 12 cards for testing */}
+                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                                 <ServerCard />
                                 <ServerCard />
                                 <ServerCard />
