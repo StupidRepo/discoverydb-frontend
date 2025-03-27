@@ -1,7 +1,6 @@
 // @ts-nocheck
 
 import * as React from "react";
-import { BannerCard } from "~/components/mine/bannerCard";
 import {PluginCard} from "~/components/mine/plugincard";
 
 const PluginsPage = React.forwardRef<

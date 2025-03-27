@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 import * as React from "react";
-import { BannerCard } from "~/components/mine/bannerCard";
+import { BannerCard } from "components/mine/bannercard";
 
 const ServerPage = React.forwardRef<
 	HTMLDivElement,
